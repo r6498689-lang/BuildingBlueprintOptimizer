@@ -1,0 +1,25 @@
+{
+  "FileVersion": 3,
+  "Version": 20000,
+  "VersionName": "2.0.0",
+  "FriendlyName": "Building Blueprint Optimizer",
+  "Description": "Optimize existing building Blueprints with ISM, Nanite, backups and batch processing.",
+  "Category": "Editor",
+  "CreatedBy": "ZMH",
+  "CanContainContent": false,
+  "EnabledByDefault": true,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "BuildingBlueprintOptimizer",
+      "Type": "Editor",
+      "LoadingPhase": "PostEngineInit"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "DatasmithContent",
+      "Enabled": true
+    }
+  ]
+}
