@@ -1,15 +1,22 @@
 # 建筑蓝图优化器
 
+## 引擎版本
+
+- [UE 5.6：main 分支](https://github.com/r6498689-lang/BuildingBlueprintOptimizer/tree/main)
+- [UE 5.8：ue5.8 分支](https://github.com/r6498689-lang/BuildingBlueprintOptimizer/tree/ue5.8)
+
+同一插件的引擎版本保留在同一仓库。请分别下载匹配版本，避免混装。
+
 对已有建筑蓝图进行 **ISM 实例化、Nanite、单项或批量优化**，支持另存副本、备份后替换、备份管理和内存记录。
 
-**版本：2.0.0 · UE 5.6.1 · Windows 编辑器**
+**版本：2.0.0 · UE 5.8.4 · Windows 编辑器**
 
 ## 独立安装
 
-本插件的模块名为 `BuildingBlueprintOptimizer`，不依赖创建插件。它可以单独安装，也可以与 [建筑蓝图批量创建器](https://github.com/r6498689-lang/BuildingBlueprintCreator) 同时安装。这里不提供 Actor 转蓝图或按父级创建功能。
+本插件的模块名为 `BuildingBlueprintOptimizer`，不依赖创建插件。它可以单独安装，也可以与 [建筑蓝图批量创建器](https://github.com/r6498689-lang/BuildingBlueprintCreator/tree/ue5.8) 同时安装。这里不提供 Actor 转蓝图或按父级创建功能。
 
 1. 下载仓库源码，将根目录内容放进 `<项目>/Plugins/BuildingBlueprintOptimizer/`，目录下应直接有 `BuildingBlueprintOptimizer.uplugin` 和 `Source`。
-2. 使用 UE 5.6.1 的 C++ 编译环境编译 Editor 目标；依赖引擎 Datasmith Content。
+2. 使用 UE 5.8.4 的 C++ 编译环境编译 Editor 目标；依赖引擎 Datasmith Content。
 3. 在插件管理器启用 **Building Blueprint Optimizer**，重启编辑器。
 
 源码版不包含预编译 DLL、UE 引擎代码或项目素材。升级时替换插件目录，避免保留旧二进制。
@@ -43,3 +50,6 @@
 从原合并版 1.9.5 提取已有蓝图优化功能，使用独立模块、反射类型和接口。移除创建蓝图菜单、创建接口与按父级创建流程，支持和创建插件共存。
 
 验证记录见 [拆分验证说明](docs/使用说明与版本记录.md)。
+
+
+UE5.8 适配范围与验证记录见 [UE5.8 适配说明](docs/UE5.8适配说明.md)。

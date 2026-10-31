@@ -18,7 +18,7 @@ static bool EnableBuildingNanite(const TArray<AActor*>& Actors, FBuildingOptimiz
                 if (Component->IsDisallowNanite()) Result.Warnings.Add(Label(Actor) + TEXT("：组件禁用了 Nanite；开启模型资产不会覆盖该组件设置。"));
                 if (Seen.Contains(Mesh)) continue;
                 Seen.Add(Mesh);
-                if (Mesh->NaniteSettings.bEnabled) { ++Result.NaniteAlreadyEnabledCount; continue; }
+                if (Mesh->GetNaniteSettings().bEnabled) { ++Result.NaniteAlreadyEnabledCount; continue; }
                 const FString Package = Mesh->GetOutermost()->GetName();
                 const FString File = FPackageName::LongPackageNameToFilename(Package, FPackageName::GetAssetPackageExtension());
                 if (!Package.StartsWith(TEXT("/Game/")) || !IFileManager::Get().FileExists(*File)
@@ -76,8 +76,8 @@ static bool EnableBuildingNanite(const TArray<AActor*>& Actors, FBuildingOptimiz
     for (UStaticMesh* Mesh : Pending)
     {
         Progress.EnterProgressFrame(1, FText::FromString(Mesh->GetName()));
-        Old.Add(Mesh->NaniteSettings); Changed.Add(Mesh);
-        FMeshNaniteSettings Settings = Mesh->NaniteSettings; Settings.bEnabled = true;
+        Old.Add(Mesh->GetNaniteSettings()); Changed.Add(Mesh);
+        FMeshNaniteSettings Settings = Mesh->GetNaniteSettings(); Settings.bEnabled = true;
         Apply(Mesh, Settings);
         FString Error;
         const bool bBuilt = Mesh->HasValidNaniteData();
